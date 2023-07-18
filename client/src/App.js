@@ -18,6 +18,10 @@ import { StoreProvider } from './utils/GlobalState';
 import Success from './pages/Success';
 import OrderHistory from './pages/OrderHistory';
 
+import { Provider } from 'react-redux';
+//import store from './store';
+
+
 const httpLink = createHttpLink({
   uri: '/graphql',
 });
@@ -39,45 +43,47 @@ const client = new ApolloClient({
 
 function App() {
   return (
+    // <Provider store={store}>
     <ApolloProvider client={client}>
       <Router>
         <div>
           <StoreProvider>
             <Nav />
             <Routes>
-              <Route 
-                path="/" 
-                element={<Home />} 
+              <Route
+                path="/"
+                element={<Home />}
               />
-              <Route 
-                path="/login" 
-                element={<Login />} 
+              <Route
+                path="/login"
+                element={<Login />}
               />
-              <Route 
-                path="/signup" 
-                element={<Signup />} 
+              <Route
+                path="/signup"
+                element={<Signup />}
               />
-              <Route 
-                path="/success" 
-                element={<Success />} 
+              <Route
+                path="/success"
+                element={<Success />}
               />
-              <Route 
-                path="/orderHistory" 
-                element={<OrderHistory />} 
+              <Route
+                path="/orderHistory"
+                element={<OrderHistory />}
               />
-              <Route 
-                path="/products/:id" 
-                element={<Detail />} 
+              <Route
+                path="/products/:id"
+                element={<Detail />}
               />
-              <Route 
-                path="*" 
-                element={<NoMatch />} 
+              <Route
+                path="*"
+                element={<NoMatch />}
               />
             </Routes>
           </StoreProvider>
         </div>
       </Router>
     </ApolloProvider>
+    //  </Provider>
   );
 }
 
