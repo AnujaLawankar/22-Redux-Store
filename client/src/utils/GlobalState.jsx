@@ -1,16 +1,19 @@
-import { createContext, useContext } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { createContext, useContext, useReducer } from "react";
+import { reducer } from './reducers'
 
 const StoreContext = createContext();
 const { Provider } = StoreContext;
 
-const StoreProvider = ({ children }) => {
-  // You don't need to define the store state and dispatch here
-  // Instead, you can access them directly from the Redux store using useSelector and useDispatch hooks
-  const state = useSelector((state) => state);
-  const dispatch = useDispatch();
+const StoreProvider = ({ value = [], ...props }) => {
+  const [state, dispatch] = useReducer(reducer, {
+    products: [],
+    cart: [],
+    cartOpen: false,
+    categories: [],
+    currentCategory: '',
+  });
 
-  return <Provider value={[state, dispatch]}>{children}</Provider>;
+  return <Provider value={[state, dispatch]} {...props} />;
 };
 
 const useStoreContext = () => {

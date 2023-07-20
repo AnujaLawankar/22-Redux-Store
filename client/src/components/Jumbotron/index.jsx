@@ -1,6 +1,3 @@
-import React from 'react';
-import { connect } from 'react-redux';
-
 function Jumbotron({ children }) {
   return (
     <div
@@ -11,4 +8,4 @@ function Jumbotron({ children }) {
   );
 }
 
-export default connect()(Jumbotron);
+export default Jumbotron;

@@ -1,18 +1,20 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { logoutUser } from '../../utils/auth';
+import Auth from "../../utils/auth";
+import { Link } from "react-router-dom";
 
-function Nav({ loggedIn, logoutUser }) {
+function Nav() {
+
   function showNavigation() {
-    if (loggedIn) {
+    if (Auth.loggedIn()) {
       return (
         <ul className="flex-row">
           <li className="mx-1">
-            <Link to="/orderHistory">Order History</Link>
+            <Link to="/orderHistory">
+              Order History
+            </Link>
           </li>
           <li className="mx-1">
-            <a href="/" onClick={logoutUser}>
+            {/* this is not using the Link component to logout or user and then refresh the application to the start */}
+            <a href="/" onClick={() => Auth.logout()}>
               Logout
             </a>
           </li>
@@ -22,10 +24,14 @@ function Nav({ loggedIn, logoutUser }) {
       return (
         <ul className="flex-row">
           <li className="mx-1">
-            <Link to="/signup">Signup</Link>
+            <Link to="/signup">
+              Signup
+            </Link>
           </li>
           <li className="mx-1">
-            <Link to="/login">Login</Link>
+            <Link to="/login">
+              Login
+            </Link>
           </li>
         </ul>
       );
@@ -36,24 +42,16 @@ function Nav({ loggedIn, logoutUser }) {
     <header className="flex-row px-1">
       <h1>
         <Link to="/">
-          <span role="img" aria-label="shopping bag">
-            🛍️
-          </span>
+          <span role="img" aria-label="shopping bag">🛍️</span>
           -Shop-Shop
         </Link>
       </h1>
 
-      <nav>{showNavigation()}</nav>
+      <nav>
+        {showNavigation()}
+      </nav>
     </header>
   );
 }
 
-const mapStateToProps = (state) => ({
-  loggedIn: state.auth.loggedIn,
-});
-
-const mapDispatchToProps = {
-  logoutUser,
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Nav);
+export default Nav;

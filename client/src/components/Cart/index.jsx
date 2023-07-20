@@ -5,13 +5,14 @@ import { QUERY_CHECKOUT } from '../../utils/queries';
 import { idbPromise } from '../../utils/helpers';
 import CartItem from '../CartItem';
 import Auth from '../../utils/auth';
+import { useStoreContext } from '../../utils/GlobalState';
 import { TOGGLE_CART, ADD_MULTIPLE_TO_CART } from '../../utils/actions';
 import './style.css';
-import { connect } from 'react-redux';
 
 const stripePromise = loadStripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
 
-const Cart = ({ cart, cartOpen, dispatch }) => {
+const Cart = () => {
+  const [state, dispatch] = useStoreContext();
   const [getCheckout, { data }] = useLazyQuery(QUERY_CHECKOUT);
 
   useEffect(() => {
@@ -28,10 +29,10 @@ const Cart = ({ cart, cartOpen, dispatch }) => {
       dispatch({ type: ADD_MULTIPLE_TO_CART, products: [...cart] });
     }
 
-    if (!cart.length) {
+    if (!state.cart.length) {
       getCart();
     }
-  }, [cart.length, dispatch]);
+  }, [state.cart.length, dispatch]);
 
   function toggleCart() {
     dispatch({ type: TOGGLE_CART });
@@ -39,7 +40,7 @@ const Cart = ({ cart, cartOpen, dispatch }) => {
 
   function calculateTotal() {
     let sum = 0;
-    cart.forEach((item) => {
+    state.cart.forEach((item) => {
       sum += item.price * item.purchaseQuantity;
     });
     return sum.toFixed(2);
@@ -48,7 +49,7 @@ const Cart = ({ cart, cartOpen, dispatch }) => {
   function submitCheckout() {
     const productIds = [];
 
-    cart.forEach((item) => {
+    state.cart.forEach((item) => {
       for (let i = 0; i < item.purchaseQuantity; i++) {
         productIds.push(item._id);
       }
@@ -59,7 +60,7 @@ const Cart = ({ cart, cartOpen, dispatch }) => {
     });
   }
 
-  if (!cartOpen) {
+  if (!state.cartOpen) {
     return (
       <div className="cart-closed" onClick={toggleCart}>
         <span role="img" aria-label="trash">
@@ -75,9 +76,9 @@ const Cart = ({ cart, cartOpen, dispatch }) => {
         [close]
       </div>
       <h2>Shopping Cart</h2>
-      {cart.length ? (
+      {state.cart.length ? (
         <div>
-          {cart.map((item) => (
+          {state.cart.map((item) => (
             <CartItem key={item._id} item={item} />
           ))}
 
@@ -103,11 +104,4 @@ const Cart = ({ cart, cartOpen, dispatch }) => {
   );
 };
 
-const mapStateToProps = (state) => {
-  return {
-    cart: state.cart, // Map the cart state to the component's props
-    cartOpen: state.cartOpen, // Map the cartOpen state to the component's props
-  };
-};
-
-export default connect(mapStateToProps)(Cart);
+export default Cart;
