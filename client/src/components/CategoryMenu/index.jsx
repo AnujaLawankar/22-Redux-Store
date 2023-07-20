@@ -69,6 +69,7 @@
 // }
 
 // //export default CategoryMenu;
+
 import React, { useEffect } from 'react';
 import { useQuery } from '@apollo/client';
 import { useDispatch, useSelector } from 'react-redux';
@@ -134,3 +135,61 @@ export default function CategoryMenu() {
     </div>
   );
 }
+
+// import React, { useEffect } from 'react';
+// import { useQuery } from '@apollo/client';
+// import { useDispatch, useSelector } from 'react-redux';
+// import { UPDATE_CATEGORIES, UPDATE_CURRENT_CATEGORY } from '../../utils/actions';
+// import { QUERY_CATEGORIES } from '../../utils/queries';
+// import { idbPromise } from '../../utils/helpers';
+
+// export default function CategoryMenu() {
+//   const dispatch = useDispatch();
+//   const categories = useSelector((state) => state.categories);
+
+//   const { loading, data } = useQuery(QUERY_CATEGORIES);
+
+//   useEffect(() => {
+//     if (data) {
+//       dispatch(UPDATE_CATEGORIES(data.categories));
+//       data.categories.forEach((category) => {
+//         idbPromise('categories', 'put', category);
+//       });
+//     } else if (!loading) {
+//       idbPromise('categories', 'get').then((categories) => {
+//         dispatch(UPDATE_CATEGORIES(categories));
+//       });
+//     }
+//   }, [data, loading, dispatch]);
+
+//   const handleClick = (id) => {
+//     dispatch(UPDATE_CURRENT_CATEGORY(id));
+//   };
+
+//   if (!categories || !categories.length) {
+//     return null;
+//   }
+
+//   return (
+//     <div>
+//       <h2>Choose a Category:</h2>
+//       {categories.map((item) => (
+//         <button
+//           key={item._id}
+//           onClick={() => {
+//             handleClick(item._id);
+//           }}
+//         >
+//           {item.name}
+//         </button>
+//       ))}
+//       <button
+//         onClick={() => {
+//           handleClick('');
+//         }}
+//       >
+//         All
+//       </button>
+//     </div>
+//   );
+// }

@@ -6,6 +6,7 @@
 
 // export default createStore(reducers);
 import { createStore } from 'redux';
+import reducer from './reducers';
 
 const initialState = {}; // Set your initial state here
 
@@ -14,6 +15,6 @@ function rootReducer(state = initialState, action) {
     return state;
 }
 
-const store = createStore(rootReducer);
+const store = createStore(reducer);
 
 export default store;
