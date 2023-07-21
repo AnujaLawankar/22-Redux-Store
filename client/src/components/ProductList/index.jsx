@@ -15,9 +15,14 @@ export default function ProductList() {
 
   const { loading, data } = useQuery(QUERY_PRODUCTS);
 
+
+
   useEffect(() => {
     if (data) {
-      dispatch(UPDATE_PRODUCTS(data.products));
+      dispatch({
+        type: UPDATE_PRODUCTS,
+        products: data.products,
+      });
       data.products.forEach((product) => {
         idbPromise('products', 'put', product);
       });
