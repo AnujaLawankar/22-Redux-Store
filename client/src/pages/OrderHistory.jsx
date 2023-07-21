@@ -7,6 +7,9 @@ function OrderHistory() {
   const { data } = useQuery(QUERY_USER);
   let user;
 
+  console.log("Datat is coming", data);
+
+
   if (data) {
     user = data.user;
   }

@@ -120,6 +120,7 @@ export default function CategoryMenu() {
           key={item._id}
           onClick={() => {
             handleClick(item._id);
+            console.log(item._id);
           }}
         >
           {item.name}
