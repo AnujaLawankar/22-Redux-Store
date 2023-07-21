@@ -7,7 +7,7 @@ export default function CartItem({ item }) {
 
   const dispatch = useDispatch();
 
-  //const [, dispatch] = useStoreContext();
+
 
   const removeFromCart = item => {
     dispatch({
