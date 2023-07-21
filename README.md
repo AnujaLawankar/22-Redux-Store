@@ -1,33 +1,20 @@
-## 20_react_portfolio
+## 22-Redux-Store
 
 
 ## Description:-
 
-1. 20_react_portfolio is a single-page application portfolio for a web developer.
+1. 22-Redux-Store is a e-commerce paltform for buy a products, add them in cart or delete them, and also have payment method to add cerdit card and buy them.
 
-2. WHEN recruiter load the portfolio. THEN he will presented with a page containing a header, a section for content, and a footer.
+2. WHEN user review the app’s store. THEN he can find that the app uses a Redux store.
 
-3. WHEN recruiter view the header. THEN he will presented with the developer’s name and navigation with titles corresponding to different sections of the portfolio.
+3. WHEN user review the way the React front end accesses the store. THEN he can find that the app uses a Redux provider
 
-4. WHEN recruiter view the navigation titles. THEN he will presented with the titles About Me, Portfolio, Contact, and Resume, and the title corresponding to the current section is highlighted
+4. WHEN user review the way the app determines changes to its global state. THEN he can find that the app passes reducers to a Redux store instead of using the Context API
 
-5. WHEN recruiter click on a navigation title. THEN he will presented with the corresponding section below the navigation without the page reloading and that title is highlighted
+5. WHEN user review the way the app extracts state data from the store. THEN he can find that the app uses Redux instead of the Context API.
 
-6. WHEN recruiter load the portfolio the first time. THEN the About Me title and section are selected by default.
-
-7. WHEN recruiter presented with the About Me section. THEN he will see a recent photo or avatar of the developer and a short bio.
-
-8. WHEN recruiter presented with the Portfolio section. THEN he will titled images of six of the developer’s applications with links to both the deployed applications and the corresponding GitHub repository.
-
-9. WHEN recruiter presented with the Contact section. THEN he will get a contact form with fields for a name, an email address, and a message
-
-10. WHEN recruiter move his cursor out of one of the form fields without entering text. THEN he will receive a notification that this field is required
-
-11. WHEN recruiter enter text into the email address field. THEN he will receive a notification if he entered an invalid email address
-
-12. WHEN recruiter presented with the Resume section. THEN he will see a link to a downloadable resume and a list of the developer’s proficiencies
-
-13. WHEN recruiter view the footer. THEN he will presented with text or icon links to the developer’s GitHub and LinkedIn profiles, and their profile on a third platform (Stack Overflow, Twitter) 
+6. WHEN user review the way the app dispatches actions
+THEN he can find that the app uses Redux instead of the Context API
 
 
 ## Table of Contents
@@ -42,19 +29,19 @@
 
 ## Steps followed:-
 
-1. First created the "New Repository" i.e "20_react_portfolio" in GitHub.
+1. First created the "New Repository" i.e "22-Redux-Store" in GitHub.
 
-2. In GitBash  navigate to the repository and  to clone "20_react_portfolio" repository. Using "cd" command.
+2. In GitBash  navigate to the repository and  to clone "22-Redux-Store" repository. Using "cd" command.
 
-3. Then used "git clone <ssh key>" of "20_react_portfolio" and clone the repository.
+3. Then used "git clone <ssh key>" of "22-Redux-Store" and clone the repository.
 
 4. Run "code ." command to open VS.
 
-5. Then  created hit the command "npx create-react-app 20_react_portfolio" in terminal to create react app and README files using touch command.
+5. Clone the starter code in the local repo.
 
 6.  Executed the code by installing npm install and npm run build command.
 
-7. Write the code and run by using npm run start command.
+7. Write the code and run by using npm run develop command.
 
 8. After that, added code to GitHub by using "git add -A" command on Gitbash. 
 
@@ -62,7 +49,7 @@
 
 10. Push the code by using "git push origin main".
 
-11. All the final code push in my "20_react_portfolio" repository.
+11. All the final code push in my "22-Redux-Store" repository.
 
 
  
@@ -70,19 +57,19 @@
 ## URLs:-
 Here, you can find the "20_react_portfolio" on github pages:- 
 
-https://anujalawankar.github.io/20_react_portfolio/
+
 
 
 Here, you can find the GitHub URL:-
 
-https://github.com/AnujaLawankar/20_react_portfolio
+https://github.com/AnujaLawankar/22-Redux-Store
 
 
 ## Installation
 
 1. Install inquirer, please use npm i inquirer@8.2.4.
 2. npm run build
-3. npm run start
+3. npm run develop
 
 
 
@@ -90,7 +77,7 @@ https://github.com/AnujaLawankar/20_react_portfolio
 ## Testing
 
 1. Stop server by using command "ctrl c"
-2. Now restart server by using command "npm run start"
+2. Now restart server by using command "npm run develop"
 
 
 
@@ -98,24 +85,18 @@ https://github.com/AnujaLawankar/20_react_portfolio
 
 The following images demonstrates the application's appearance:
 
-1. The landing page is the home page of React portfolio.
-
+1. The landing page is displayed all product list.
 ![Website](./assets/screenshot1.png)
 
-2. About me web page with photo.
+2. This is a sigup page
 ![Website](./assets/screenshot2.png)
 
-3. Portfolio web page with six projects.
+3. User can add products in cart also they can delete products ffrom cart
 ![Website](./assets/screenshot3.png)
 
-4. Resume Download page.
+4. The payment method page.
 ![Website](./assets/screenshot4.png)
 
-5. Contact web page.
-![Website](./assets/screenshot5.png)
-
-6. Footers with social media links icons.
-![Website](./assets/screenshot6.png)
 
 
 ## License
