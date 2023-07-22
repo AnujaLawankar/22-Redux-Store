@@ -57,7 +57,8 @@ THEN he can find that the app uses Redux instead of the Context API
 ## URLs:-
 Here, you can find the "20_react_portfolio" on github pages:- 
 
-https://infinite-tor-38454-33de0fcbec44.herokuapp.com/
+https://redux-store-22-34295aa83d9e.herokuapp.com/
+
 
 
 Here, you can find the GitHub URL:-
