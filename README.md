@@ -3,7 +3,7 @@
 
 ## Description:-
 
-1. 22-Redux-Store is a e-commerce paltform for buy a products, add them in cart or delete them, and also have payment method to add cerdit card and buy them.
+1. 22-Redux-Store is a e-commerce platform for buy a products, add them in cart or delete them, and also have payment method to add credit card and buy them.
 
 2. WHEN user review the app’s store. THEN he can find that the app uses a Redux store.
 
